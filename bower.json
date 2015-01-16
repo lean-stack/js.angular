@@ -9,5 +9,8 @@
   "keywords": [
     "angularjs"
   ],
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "pure": "~0.5.0"
+  }
 }
