@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/lean-stack/js.angular/issues"
   },
-  "homepage": "https://github.com/lean-stack/js.angular"
+  "homepage": "https://github.com/lean-stack/js.angular",
+  "dependencies": {
+    "gulp": "^3.8.10"
+  }
 }
