@@ -1,0 +1,13 @@
+{
+  "name": "js.angular",
+  "version": "0.0.0",
+  "homepage": "https://github.com/lean-stack/js.angular",
+  "authors": [
+    "Michael Alt <lean@michael-alt.info>"
+  ],
+  "description": "AngularJS samples",
+  "keywords": [
+    "angularjs"
+  ],
+  "license": "ISC"
+}
