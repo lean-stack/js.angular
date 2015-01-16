@@ -1,0 +1,18 @@
+{
+  "name": "js.angular",
+  "version": "0.0.1",
+  "description": "AngularJS Samples",
+  "repository": {
+    "type": "git",
+    "url": "https://lean-stack@github.com/lean-stack/js.angular.git"
+  },
+  "keywords": [
+    "angularjs"
+  ],
+  "author": "Micha Alt <lean@michael-alt.info>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lean-stack/js.angular/issues"
+  },
+  "homepage": "https://github.com/lean-stack/js.angular"
+}
