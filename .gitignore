@@ -1,2 +1,6 @@
 # Bower dependencies
 bower_components/
+
+# WebStorm settings
+.idea/
+
