@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrapping - Automatic</title>
+  <link rel="stylesheet" href="../bower_components/pure/pure.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body ng-app="lean">
+
+<div class="pure-g" ng-controller="HomeCtrl">
+  <div class="pure-u-1">
+    <h1>Bootstrapping - Automatic</h1>
+
+    <aside>
+      <span>Doc-Link: <a href="https://docs.angularjs.org/guide/bootstrap">https://docs.angularjs.org/guide/bootstrap</a></span>
+    </aside>
+
+    <article>
+      <h2>Minimal App: <code>Lean</code></h2>
+
+      <div>AngularJS ist bootstrapped, {{ "Hooray!" }}</div>
+      <div>Current Version of AngularJS: {{ VERSION }}</div>
+
+      <section class="steps">
+        <h2>Schritt für Schritt</h2>
+
+        <ol>
+          <li>Script-Tag einbauen (Ort: Ende des Body-Tags)</li>
+          <li>Attribut <code>ng-app</code> am Mantel-Tag (html,body,div,...),
+            Value ist Name der Applikation
+          </li>
+          <li>Controller im <code>ng-controller</code>-Attribut setzen</li>
+          <li>Angular-Applikation (Script) hinter dem Angular-Tag einbauen</li>
+        </ol>
+
+      </section>
+    </article>
+
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="automatic.js"></script>
+</body>
+</html>

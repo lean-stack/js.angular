@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Dependency Injection</title>
+</head>
+<body ng-app="lean">
+
+<h3>Retrieving services in the console</h3>
+<pre>
+  var injector = angular.injector(['services', 'ng']);
+  injector.get('logObjService');
+</pre>
+<script src="../bower_components/angular/angular.js"></script>
+
+<script src="app.js"></script>
+<script src="injectable-services/services.js"></script>
+</body>
+</html>

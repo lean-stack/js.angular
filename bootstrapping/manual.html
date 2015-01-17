@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrapping - Manual</title>
+</head>
+<body>
+
+<div id="appRoot" class="pure-g" ng-controller="HomeCtrl">
+  <div class="pure-u-1">
+    <h1>Bootstrapping - Manual</h1>
+
+    <aside>
+      <span>Doc-Link: <a href="https://docs.angularjs.org/guide/bootstrap">https://docs.angularjs.org/guide/bootstrap</a></span>
+    </aside>
+
+    <article>
+      <h2>Minimal App: <code>Lean</code></h2>
+
+      <div>AngularJS ist bootstrapped, {{ "Hooray!" }}</div>
+      <div>Current Version of AngularJS: {{ VERSION }}</div>
+
+      <section class="steps">
+        <h2>Schritt für Schritt</h2>
+
+        <ol>
+          <li>Controller im <code>ng-controller</code>-Attribut setzen</li>
+          <li>Script-Tag für angular.js einbauen (Ort: Ende des Body-Tags)</li>
+          <li>Angular-Applikation (Script) hinter dem Angular-Tag einbauen</li>
+        </ol>
+
+      </section>
+    </article>
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="manual.js"></script>
+</body>
+</html>
