@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="language-javascript">
 <head>
   <meta charset="UTF-8">
   <title>Bootstrapping - Manual App</title>
-  <link rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.css">
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="../bower_components/prism/themes/prism.css" />
+  <!-- endbower -->
   <link rel="stylesheet" href="../css/typo.css">
   <link rel="stylesheet" href="../css/samples.css">
 </head>
@@ -25,13 +28,13 @@
        <li class="collection-item">Einbinden von AngularJS (Ende des <code>body</code>)</li>
        <li class="collection-item">Optional: Einbinden von jQuery (vor AngularJS)</li>
        <li class="collection-item">Bootstrap-Script einbinden
-         <pre>
+         <pre><code>
     angular.module('myApp',[]);  // Module Setter (definiert ein Modul)
     
     angular.element(document).ready(function() {
       angular.bootstrap(document,['myApp']);
     });
-         </pre>
+         </code></pre>
        </li>
      </ol>
    </div>
@@ -57,9 +60,12 @@
      </div>
    </div>
   </div>
+  <!-- bower:js -->
   <script src="../bower_components/jquery/dist/jquery.js"></script>
-  <script src="../bower_components/materialize/dist/js/materialize.js"></script>
   <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/materialize/bin/materialize.js"></script>
+  <script src="../bower_components/prism/prism.js"></script>
+  <!-- endbower -->
   <script>
     angular.module('myApp',[]);  // Module Setter (definiert ein Modul)
     

@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="language-javascript">
 <head>
   <meta charset="UTF-8">
-  <title>Bootstrapping - Automatic</title>
-  <link rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.css">
+  <title>Bootstrapping - Before</title>
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="../bower_components/prism/themes/prism.css" />
+  <!-- endbower -->
   <link rel="stylesheet" href="../css/typo.css">
   <link rel="stylesheet" href="../css/samples.css">
 </head>
-<body ng-app>
+<body>
   <nav class="page-header">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo right">Bootstrapping - Automatic</a>
+        <a href="#" class="brand-logo right">Bootstrapping - Before</a>
         <ul id="nav-mobile" class="left side-nav">
           <li><a href="../index.html">Samples</a></li>
       </ul>
@@ -19,14 +22,10 @@
     </div>
   </nav>
   <div class="container">
-   <div class="card-panel">
-     <h3>Schritte</h3>
-     <ol class="collection">
-       <li class="collection-item">Einbinden von AngularJS (Ende des <code>body</code>)</li>
-       <li class="collection-item">Optional: Einbinden von jQuery (vor AngularJS)</li>
-       <li class="collection-item">Gewünschtes Application-Root-Element mit <code>ng-app</code> attributieren</li>
-     </ol>
-   </div>
+    <div class="card-panel">
+      <h3>Problem</h3>
+      AngularJS wird zwar geladen, aber es fehlt das sogenannte Boostrapping 
+    </div>
    <div class="card-panel">
      <h3>Beispiele</h3>
      <div class="row">
@@ -49,8 +48,11 @@
      </div>
    </div>
   </div>
+  <!-- bower:js -->
   <script src="../bower_components/jquery/dist/jquery.js"></script>
-  <script src="../bower_components/materialize/dist/js/materialize.js"></script>
   <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/materialize/bin/materialize.js"></script>
+  <script src="../bower_components/prism/prism.js"></script>
+  <!-- endbower -->
 </body>
 </html>
