@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrapping - Manual</title>
+  <link rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.css">
+  <link rel="stylesheet" href="../css/typo.css">
+  <link rel="stylesheet" href="../css/samples.css">
+</head>
+<body>
+  <nav class="page-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Bootstrapping - Manual</a>
+        <ul id="nav-mobile" class="left side-nav">
+          <li><a href="../index.html">Samples</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+   <div class="card-panel">
+     <h3>Schritte</h3>
+     <ol class="collection">
+       <li class="collection-item">Einbinden von AngularJS (Ende des <code>body</code>)</li>
+       <li class="collection-item">Optional: Einbinden von jQuery (vor AngularJS)</li>
+       <li class="collection-item">Bootstrap-Script einbinden
+         <pre>
+    angular.element(document).ready(function() {
+      angular.bootstrap(document,['myApp']);
+    });
+         </pre>
+       </li>
+     </ol>
+   </div>
+   <div class="card-panel">
+     <h3>Beispiele</h3>
+     <div class="row">
+       <div class="col s6">
+         <div class="card-panel">
+           <h5>AngularJS kann rechnen</h5>
+           17 + 4 = {{17 + 4}}
+         </div>
+       </div>
+       <div class="col s6">
+         <div class="card-panel">
+           <h5>Und Hallo sagen</h5>
+           <div class="input-field">
+             <input type="text" ng-model="firstname" id="first-name" class="validate">
+             <label for="first-name">Vorname</label>
+           </div>
+           Hallo {{ firstname }}
+         </div>
+       </div>
+     </div>
+   </div>
+  </div>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/materialize/dist/js/materialize.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script>
+    angular.element(document).ready(function() {
+      angular.bootstrap(document);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+.home li {
+  list-style-type: upper-roman;
+}
+.home li li {
+  list-style-type: decimal;
+}
+.home .collection {
+  border: 0;
+}
+.page-header {
+  margin-bottom: 2rem;
+}
