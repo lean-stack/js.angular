@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Databinding - Controller</title>
+  <link rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.css">
+  <link rel="stylesheet" href="../css/typo.css">
+  <link rel="stylesheet" href="../css/samples.css">
+</head>
+<body ng-app="todoApp">
+  <nav class="page-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Databinding - Controller</a>
+        <ul id="nav-mobile" class="left side-nav">
+          <li><a href="../index.html">Samples</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card-panel" ng-controller="TodoCtrl">
+      <h3>Todo-Liste vom {{ datum }}</h3>
+      <div class="input-field">
+        <input type="text" id="todo" ng-model="newTodo">
+        <label for="todo">Neues Todo</label>
+        <a class="btn" ng-click="addTodo()">Hinzufügen</a>
+      </div>
+      <ul class="collection with-header">
+        <li class="collection-header" ng-show="todos.length > 0"><h4>Aktuelle Liste</h4></li>
+        <li class="collection-header" ng-show="todos.length == 0"><h4>Nix tu tun</h4></li>
+        <li ng-repeat="t in todos" class="collection-item">{{ t }}</li>
+      </ul>
+    </div>
+  </div>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/materialize/dist/js/materialize.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script>
+    angular.module('todoApp',[])
+      .controller('TodoCtrl', function ($scope) {
+      
+      $scope.todos = [];
+      
+      $scope.datum = new Date().toLocaleDateString();
+      
+      $scope.addTodo = function() {
+        $scope.todos.push($scope.newTodo);
+        $scope.newTodo = '';
+      }
+    });
+  </script>
+</body>
+</html>
