@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="language-javascript">
+<head>
+  <meta charset="UTF-8">
+  <title>Concepts - Databinding et. al.</title>
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="../bower_components/prism/themes/prism.css" />
+  <!-- endbower -->
+  <link rel="stylesheet" href="../css/typo.css">
+  <link rel="stylesheet" href="../css/samples.css">
+</head>
+<body ng-app ng-init="anzahl = 1; preis = 12.99; brackets='{{ expression }}'; todos=[]">
+  <nav class="page-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Concepts - Databinding et. al.</a>
+        <ul id="nav-mobile" class="left side-nav">
+          <li><a href="../index.html">Samples</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card-panel">
+      <h3>Direktiven, Ausdrücke und Data-Binding</h3>
+      <ul class="collection">
+        <li class="collection-item">Ausdrücke: <code>a + b, elt in array, ...</code></li>
+        <li class="collection-item">Direktiven: <code>ng-app,ng-init,ng-class,ng-show, ng-repeat ...</code></li>
+        <li class="collection-item">Data-Binding: <code>{{ brackets }}</code> </li>
+      </ul>
+    </div>
+    <div class="card-panel">
+      <h5>Bestellung</h5>
+      <div class="input-field">
+        <input id="anzahl" type="text" ng-model="anzahl">
+        <label for="anzahl">Anzahl (ursprünglich {{::anzahl}})</label>
+      </div>
+      <div class="input-field">
+        <input id="preis" type="text" ng-model="preis">
+        <label for="preis">Preis (ursprünglich {{::preis}})</label>
+      </div>
+      <span ng-class="{ 'red-text': anzahl*preis==0 }">Gesamt: {{anzahl*preis}} </span>
+    </div>
+    <div class="card-panel">
+      <h5>Die Primzahlen bis 20</h5>
+      <div ng-repeat="nr in [2,3,5,7,11,13,17,19]">
+        Primzahl Nr. {{$index+1}}: {{nr}}
+      </div>
+    </div>
+    <div class="card-panel">
+      <h5>Mini Todo-App</h5>
+      <div class="input-field">
+        <input id="todo" type="text" ng-model="todo">
+        <label for="todo">Neues Todo</label>
+      </div>
+      <a class="btn" ng-click="todos.push({txt: todo})">Hinzufügen</a>
+      <ul class="collection with-header" ng-show="todos.length > 0">
+        <li class="collection-header">Aktuelle Todos</li>
+        <li class="collection-item" ng-repeat="t in todos">{{t.txt}}</li>
+      </ul>
+    </div>
+  </div>
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/materialize/bin/materialize.js"></script>
+  <script src="../bower_components/prism/prism.js"></script>
+  <!-- endbower -->
+</body>
+</html>

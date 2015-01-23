@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="language-javascript">
+<head>
+  <meta charset="UTF-8">
+  <title>Concepts - Dependency Injection</title>
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="../bower_components/prism/themes/prism.css" />
+  <!-- endbower -->
+  <link rel="stylesheet" href="../css/typo.css">
+  <link rel="stylesheet" href="../css/samples.css">
+</head>
+<body ng-app="app">
+  <nav class="page-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Concepts - Dependency Injection</a>
+        <ul id="nav-mobile" class="left side-nav">
+          <li><a href="../index.html">Samples</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card-panel" ng-controller="CalendarCtrl">
+      <h3>Creating and Consuming Services</h3>
+      Willkommen an einem {{ weekday }} im {{ month }}!
+      <pre><code>
+    function DayNameService() {
+      this.getNameOfDay = function (day) {
+        return new Date(day).toLocaleDateString('de-DE',{weekday: 'long'});
+      };
+      this.getTodaysName = function() {
+        return this.getNameOfDay(Date.now());
+      };
+    }
+    function getMonthName(day) {
+      day = day || Date.now();
+      return new Date(day).toLocaleDateString('de-DE',{month: 'long'});
+    }
+    
+    angular.module('app',[])
+      .config(function($provide) {
+        $provide.factory('dayNameService', function() {
+          console.log('Factoring dayNameService');
+          return new DayNameService(); 
+        });
+      })
+      .factory('monthNameService', function() {
+        console.log('Factoring monthNameService');
+        return getMonthName;
+      })
+      
+      .controller('CalendarCtrl', 
+          function($scope, dayNameService,monthNameService) {
+            $scope.weekday = dayNameService.getTodaysName();
+            $scope.month = monthNameService();
+          });
+      </code></pre>
+    </div>
+  </div>
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/materialize/bin/materialize.js"></script>
+  <script src="../bower_components/prism/prism.js"></script>
+  <!-- endbower -->
+  <script>
+    function DayNameService() {
+      this.getNameOfDay = function (day) {
+        return new Date(day).toLocaleDateString('de-DE',{weekday: 'long'});
+      };
+      this.getTodaysName = function() {
+        return this.getNameOfDay(Date.now());
+      };
+    }
+    function getMonthName(day) {
+      day = day || Date.now();
+      return new Date(day).toLocaleDateString('de-DE',{month: 'long'});
+    }
+    
+    angular.module('app',[])
+      .config(function($provide) {
+        $provide.factory('dayNameService', function() {
+          console.log('Factoring dayNameService');
+          return new DayNameService(); 
+        });
+      })
+      .factory('monthNameService', function() {
+        console.log('Factoring monthNameService');
+        return getMonthName;
+      })
+      
+      .controller('CalendarCtrl', 
+          function($scope, dayNameService,monthNameService) {
+            $scope.weekday = dayNameService.getTodaysName();
+            $scope.month = monthNameService();
+          });
+    
+  </script>
+</body>
+</html>

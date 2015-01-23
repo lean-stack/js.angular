@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="language-javascript">
+<head>
+  <meta charset="UTF-8">
+  <title>DI - Providing</title>
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="../bower_components/prism/themes/prism.css" />
+  <!-- endbower -->
+  <link rel="stylesheet" href="../css/typo.css">
+  <link rel="stylesheet" href="../css/samples.css">
+</head>
+<body ng-app>
+  <nav class="page-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">DI - Providing</a>
+        <ul id="nav-mobile" class="left side-nav">
+          <li><a href="../index.html">Samples</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card-panel">
+      <h3>Providing Services</h3>
+       
+      <div class="card-panel">
+        <h5>Was ist ein Service?</h5>
+        Ein Service in AngularJS kann alles mögliche sein. Grundsätzlich und ohne Ausnahme sind 
+        Services immer Singletons.
+        <ul class="collection">
+          <li class="collection-item">Ein einfacher Wert: Zahl, String, Boolescher Wert</li>
+          <li class="collection-item">Ein Array</li>
+          <li class="collection-item">Eine Funktion</li>
+          <li class="collection-item">Ein literales Objekt</li>
+          <li class="collection-item">Ein per Konstruktor erzeugtes Objekt</li>
+        </ul>
+      </div>
+      <div class="card-panel">
+        <h5>Wo wird ein Service definiert?</h5>
+        Die Bereitstellung im DI-Container (Dependency-Injection Container) geschieht über zwei Varianten:
+        <ul class="collection">
+          <li class="collection-item"><code>$provide</code>-Service in einem Module-Configblock</li>
+          <li class="collection-item">Helper- (Shortcut-) Methoden des Module-Interfaces</li>
+        </ul>
+        Siehe dazu die <a href="https://docs.angularjs.org/api/auto/service/$provide">API-Dokumentation</a>
+        und das Beispiel im <a href="../_concepts/di.html">Konzepte-Teil</a>.
+      </div>
+      <div class="card-panel">
+        <h5>Wie wird ein Service definiert?</h5>
+        AngularJS stellt drei Varianten der Service-Definition zur Verfügung plus zwei weitere
+        zusätzliche für Spezialfälle.
+        <ul class="collection with-header">
+          <li class="collection-header">Standard-Varianten</li>
+          <li class="collection-item">Provider</li>
+          <li class="collection-item">Factory</li>
+          <li class="collection-item">Value</li>
+        </ul>
+        <ul class="collection with-header">
+          <li class="collection-header">Spezialfälle</li>
+          <li class="collection-item">Service-Klasse</li>
+          <li class="collection-item">Constant</li>
+        </ul>
+        <strong>Allgemeinfälle</strong>
+        <div>
+          Factory und Value sind dabei nur Vereinfachungen eines Providers. 
+        </div>
+        <strong>Spezialfälle</strong>
+        <div>
+          Die Definition als Service-Klasse erlaubt nur über Konstruktoren definierte Objekte, der 
+          Constant-Service entspricht dem Value-Service, lässt sich aber nicht über einen Decorator dekorieren.
+          (Fortgeschrittenes Thema, siehe 
+          <a href="https://docs.angularjs.org/api/auto/service/$provide#decorator">API</a> 
+          und zu einem Einstieg
+          die <a href="http://stackoverflow.com/questions/16075982/angularjs-what-are-decorators-and-how-are-they-used">StackOverflow-Frage</a>). 
+          Ein schönes Einsatzbeispiel ist AJAX-Request Mocking.
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/materialize/bin/materialize.js"></script>
+  <script src="../bower_components/prism/prism.js"></script>
+  <!-- endbower -->
+</body>
+</html>

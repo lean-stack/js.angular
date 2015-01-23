@@ -8,6 +8,11 @@
 .home .collection {
   border: 0;
 }
+
 .page-header {
   margin-bottom: 2rem;
+}
+
+.collection-header {
+  font-weight: bold;
 }
