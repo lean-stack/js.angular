@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="language-javascript">
+<head>
+  <meta charset="UTF-8">
+  <title>Concepts - Direktiven</title>
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="../bower_components/prism/themes/prism.css" />
+  <!-- endbower -->
+  <link rel="stylesheet" href="../css/typo.css">
+  <link rel="stylesheet" href="../css/samples.css">
+</head>
+<body ng-app>
+  <nav class="page-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Concepts - Direktiven</a>
+        <ul id="nav-mobile" class="left side-nav">
+          <li><a href="../index.html">Samples</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card-panel">
+      <h3>Directives</h3>
+      <div>
+        <p>
+        Direktiven sind <em>HTML-Erweiterungen</em> im Markup. Sie können
+        in unterschiedlicher Form auftreten:
+        <ul class="collection">
+          <li class="collection-item">Attribute <code>&lt;input type="text" ng-model="vorname"&gt;</code></li>
+          <li class="collection-item">Elemente <code>&lt;ng-view&gt;</code></li>
+          <li class="collection-item">Kommentare <code>&lt;!-- directive: my-drctv --&gt;</code></li>
+          <li class="collection-item">CSS-Klassen <code>&lt;span class="my-drctv"&gt;</code></li>
+        </ul>
+        Wie eine Direktive eingesetzt werden kann, wird bei ihrer
+        Erstellung festgelegt.
+        </p><p>
+        Der HTML-Compiler von AnuglarJS arbeitet den DOM-Baum ab und
+        verändert Elemente mit Direktiven (Events, Content, Attributen 
+        oder erstellt sogar komplett neue Elemente).
+        </p><p>
+        Direktiven werden in der Dokumentation immer über ihre Camel-Case
+        Notation benannt, zum Beispiel: <code>ngApp</code>. Das führende
+        ng ist dabei AngularJS-eigenen Direktiven vorbehalten. Diese
+        Schreibweise wird <em>normalisiert</em> genannt.
+        </p><p>
+        Folgende Schritte werden bei der Normalisierung angewendet:
+        <ol class="collection">
+          <li class="collection-item">Abschneiden von <code>x-</code>
+          und <code>data-</code></li> zu Beginn
+          <li class="collection-item">Alle Trenner (: - _)
+          entfernen, und Camel-Case anwenden beim Zusammenführen.</li>
+        </ol>
+        </p><p>
+        In der Praxis hat es sich durchgesetzt, die Bindestrich-Variante
+        zu benutzen (u.U. mit führendem <code>data-</code>) und
+        auschließlich Attribut- und Element-Direktiven zu benutzen.
+        </p>
+        AngularJS Guide: <a href="https://docs.angularjs.org/guide/directive">Direktives</a>
+      </div>
+    </div>
+  </div>
+  <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/materialize/bin/materialize.js"></script>
+  <script src="../bower_components/prism/prism.js"></script>
+  <!-- endbower -->
+</body>
+</html>

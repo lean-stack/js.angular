@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="language-javascript">
+
 <head>
   <meta charset="UTF-8">
-  <title>Databinding - Controller</title>
+  <title>Concepts - Controller</title>
   <!-- bower:css -->
   <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
   <link rel="stylesheet" href="../bower_components/prism/themes/prism.css" />
@@ -10,18 +11,58 @@
   <link rel="stylesheet" href="../css/typo.css">
   <link rel="stylesheet" href="../css/samples.css">
 </head>
-<body ng-app="todoApp">
+
+<body ng-app="todoApp" ng-init="wurzelVar=17">
   <nav class="page-header">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo right">Databinding - Controller</a>
+        <a href="#" class="brand-logo right">Concepts - Controller</a>
         <ul id="nav-mobile" class="left side-nav">
-          <li><a href="../index.html">Samples</a></li>
-      </ul>
+          <li><a href="../index.html">Samples</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
   <div class="container">
+    <div class="card-panel">
+      <h3>Controller</h3>
+      <div>
+      <p>
+      AngularJS ist nicht unbedingt ein klassisches
+      MVC-Framework. Alle bisherigen Beispiele spielten
+      sich im View-Bereich ab (der View bei AngularJS ist
+      genauer gesagt der DOM) - gespickt mit Framework-Logik
+      über Direktiven sowie Data-Binding.
+      </p><p>
+      Wenn aber etwas mehr Logik in der Verarbeitung der
+      Daten nötig ist, wird ein AngularJS-Controller notwendig.
+      </p><p>
+      Ein Controller in AngularJS ist eine JavaScript-Klasse
+      (genauer gesagt die Konstruktor-Funktion). Bis zur Version
+      1.2 waren noch globale Konstruktoren erlaubt, seit 1.3
+      muss der Controller einem Modul über die Schnittstellen-Methode
+      <code>controller</code> hinzugefügt werden. Die Konstruktor-Argumente
+      sind Services und werden vom DI-Container injeziert.
+      </p><p>
+      Aufgaben des Constrollers sind es, den <code>$scope</code>
+      zu initialisieren und mit "Verhalten anzureichern" (augmenting).
+      Dazu wird mit der <code>ngController</code>-Direktive ein
+      neuer <code>$scope</code> erzeugt. Jeder <code>$scope</code>
+      besitzt einen "Parent-Scope" (prototypical inheritance),
+      der "oberste" Scope ist der <code>$rootScope</code>.  
+      </p><p>
+      Die Scope-Erzeugung und -Bereitstellung für einen Controller
+      kann im Übrigen auch über den <code>$route</code>-Service geschehen.
+      </p><p>
+      Keine Aufgabe des Controllers ist es direkte DOM-Manipulation zu
+      betreiben (dies sollte Direktiven vorbehalten sein). Wird ein
+      Controller zu komplex, ist es angebracht Logik in Services
+      auszulagern.
+      </p>
+      AngularJS Guide: <a href="https://docs.angularjs.org/guide/controller">Controllers</a>
+      </div>
+    </div>
     <div class="card-panel" ng-controller="TodoCtrl">
       <h3>Todo-Liste vom {{ datum }}</h3>
       <div class="input-field">
@@ -30,8 +71,12 @@
         <a class="btn" ng-click="addTodo()">Hinzufügen</a>
       </div>
       <ul class="collection with-header">
-        <li class="collection-header" ng-show="todos.length > 0"><h4>Aktuelle Liste</h4></li>
-        <li class="collection-header" ng-show="todos.length == 0"><h4>Nix tu tun</h4></li>
+        <li class="collection-header" ng-show="todos.length > 0">
+          <h4>Aktuelle Liste</h4>
+        </li>
+        <li class="collection-header" ng-show="todos.length == 0">
+          <h4>Nix tu tun</h4>
+        </li>
         <li ng-repeat="t in todos" class="collection-item">{{ t }}</li>
       </ul>
     </div>
@@ -43,18 +88,19 @@
   <script src="../bower_components/prism/prism.js"></script>
   <!-- endbower -->
   <script>
-    angular.module('todoApp',[])
+    angular.module('todoApp', [])
       .controller('TodoCtrl', function ($scope) {
-      
-      $scope.todos = [];
-      
-      $scope.datum = new Date().toLocaleDateString();
-      
-      $scope.addTodo = function() {
-        $scope.todos.push($scope.newTodo);
-        $scope.newTodo = '';
-      }
-    });
+
+        $scope.todos = [];
+
+        $scope.datum = new Date().toLocaleDateString();
+
+        $scope.addTodo = function () {
+          $scope.todos.push($scope.newTodo);
+          $scope.newTodo = '';
+        }
+      });
   </script>
 </body>
+
 </html>

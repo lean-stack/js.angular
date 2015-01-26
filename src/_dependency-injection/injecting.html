@@ -22,8 +22,64 @@
     </div>
   </nav>
   <div class="container">
-    <div class="card-panel" ng-controller="CalendarCtrl">
-      <h3>Heute ist {{ today }}</h3>
+    <div class="card-panel">
+      <h3>Injection</h3>
+      <div>
+        <p>
+        AngularJS kennt im Gegensatz zu anderen DI-Containern keine
+        Property-Injection sondern lediglich Parameter-Injection (in
+        Funktionen). Im Framework fest eingebaut ist die Möglichkeit
+        Dienste (keine Provider) zu injezieren in
+        <ul class="collection">
+          <li class="collection-item">Module-Configblock (nur Provider und Konstanten)</li>
+          <li class="collection-item">Module-Runblock</li>
+          <li class="collection-item">Factories, Services </li>
+          <li class="collection-item">Controller</li>
+          <li class="collection-item">Direktiven</li>
+        </ul>
+        </p>
+        Die eigentliche Injection macht AngularJS im einfachsten Fall
+        nur über den Namen:
+        <pre><code>
+    function TodoController($scope,dayNameService) {
+      $scope.todos = [];
+    }
+        </code></pre>
+        <p>
+          Der empfohlene Weg ist aber über eine Annotation. Der 
+          <a href="https://docs.angularjs.org/guide/di#dependency-annotation">Guide</a>
+          nennt hier zwei Varianten:
+          <ol class="collection">
+            <li class="collection-item">Inline-Array Notation
+            <pre><code>
+    angular.module('name',[])
+      .controller(['$scope','dayNameService', 
+         function($scope,dayNameService) {
+          $scope.todos = [];
+         }
+      ]);
+            </code></pre>
+            </li>
+            <li class="collection-item">$inject-Property
+            <pre><code>
+    function TodoController($scope,dayNameService) {
+      $scope.todos = [];
+    }
+    TodoController.$inject = ['$scope','dayNameService'];
+            </code></pre>
+            </li>
+          </ol>
+        </p><p>
+        Dieser Annotations-Weg ist auch zwingend erforderlich, wenn
+        die Scripte beim anschließenden Build minifiziert werden.
+        Mit AngularJS 1.3 wurde eine <code>ngStrictDi</code>-Direktive
+        eingeführt, die direkt am <code>ngApp</code>-Element angesetzt
+        wird und eine Annotation erzwingt. Mit 
+        <a href="https://github.com/olov/ng-annotate">ng-annotate</a>
+        wurde ein Node-Tool entwickelt, dass nachträglich fehlende
+        Annotationen einbaut.
+        </p>
+      </div>
     </div>
   </div>
   <!-- bower:js -->
@@ -32,6 +88,5 @@
   <script src="../bower_components/materialize/bin/materialize.js"></script>
   <script src="../bower_components/prism/prism.js"></script>
   <!-- endbower -->
-  <script src="injecting.js"></script>
 </body>
 </html>

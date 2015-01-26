@@ -22,7 +22,30 @@
     </div>
   </nav>
   <div class="container">
-
+    <div class="card-panel">
+      <h3>Scopes</h3>
+      <div>
+        <p>Scopes sind zunächst normale JavaScript-Objekte einer
+        Klasse, dass heißt sie besitzen zusätzlich eine API. Alle
+        Expressions und Direktiven arbeiten mit den Scopes, d.h.
+        eine Expression "sucht" im Elemente-Baum nach einem
+        Scope (z.B. durch einen Controller oder eine Direktive erzeugt) und einer
+        Property in diesem Scope. Wird sie nicht fündig, wird
+        der Parent-Scope (Prototypical Inheritance) durchsucht.
+        </p><p>
+        Die wichtigsten Methoden der Scope-API sind <code>$watch</code>,
+        um Änderungen von Scope-Properties im Controller zu überwachen, und
+        <code>$apply</code>, um Property-Änderungen (die nicht mit 
+        AngularJS-Komponenten ausgelöst wurden) zu den Expressions
+        weiterzuleiten (zumindest letzteres sollte möglichst in eigenen
+        Projekten vermieden werden). 
+        </p><p>
+        Im Zusammenhang mit Direktiven existieren noch sogenannte
+        <em>isolated scopes</em>, die über keinen Parent-Scope verfügen.
+        </p>
+        AngularJS Guide: <a href="https://docs.angularjs.org/guide/scope">Scopes</a>
+      </div>
+    </div>
   </div>
   <!-- bower:js -->
   <script src="../bower_components/jquery/dist/jquery.js"></script>

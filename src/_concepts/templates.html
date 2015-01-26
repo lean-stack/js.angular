@@ -2,7 +2,7 @@
 <html lang="en" class="language-javascript">
 <head>
   <meta charset="UTF-8">
-  <title>Bootstrapping - Before</title>
+  <title>Concepts - Templates</title>
   <!-- bower:css -->
   <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
   <link rel="stylesheet" href="../bower_components/prism/themes/prism.css" />
@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="../css/typo.css">
   <link rel="stylesheet" href="../css/samples.css">
 </head>
-<body>
+<body ng-app>
   <nav class="page-header">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo right">Bootstrapping - Before</a>
+        <a href="#" class="brand-logo right">Concepts - Templates</a>
         <ul id="nav-mobile" class="left side-nav">
           <li><a href="../index.html">Samples</a></li>
       </ul>
@@ -23,31 +23,19 @@
   </nav>
   <div class="container">
     <div class="card-panel">
-      <h3>Problem</h3>
-      <p>AngularJS wird zwar geladen, aber es fehlt das sogenannte Boostrapping</p>
-      AngularJS Guide: <a href="https://docs.angularjs.org/guide/bootstrap">Bootstrap</a>
+      <h3>Templates</h3>
+      Die Template-Sprache von AngularJS ist HTML. Templates in AngularJS
+      sind also nichts anderes als HTML gespickt mit Erweiterungen:
+      <ul class="collection">
+        <li class="collection-item">Direktiven</li>
+        <li class="collection-item">Expressions {{ }}</li>
+        <li class="collection-item">Filter</li>
+        <li class="collection-item">Form Controls (eigentl. Direktiven)</li>
+      </ul>
+      Templates werden in der Regel in Dateien abgelegt, es gibt
+      aber auch JavaScript-Codetemplates. Desweiteren werden Templates
+      durch in SPA durch den Router-Service nachgeladen.
     </div>
-   <div class="card-panel">
-     <h3>Beispiele</h3>
-     <div class="row">
-       <div class="col s6">
-         <div class="card-panel">
-           <h5>AngularJS kann rechnen</h5>
-           17 + 4 = {{17 + 4}}
-         </div>
-       </div>
-       <div class="col s6">
-         <div class="card-panel">
-           <h5>Und Hallo sagen</h5>
-           <div class="input-field">
-             <input type="text" ng-model="firstname" id="first-name" class="validate">
-             <label for="first-name">Vorname</label>
-           </div>
-           Hallo {{ firstname }}
-         </div>
-       </div>
-     </div>
-   </div>
   </div>
   <!-- bower:js -->
   <script src="../bower_components/jquery/dist/jquery.js"></script>
