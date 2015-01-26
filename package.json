@@ -16,7 +16,10 @@
   },
   "homepage": "https://github.com/lean-stack/js.angular",
   "dependencies": {
-    "express": "^4.11.1",
+    "express": "^4.11.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^1.9.1",
     "gulp": "^3.8.10",
     "wiredep": "^2.2.2"
   }
