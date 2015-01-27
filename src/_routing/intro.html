@@ -1,30 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" class="language-javascript">
+
 <head>
   <meta charset="UTF-8">
   <title>Routing - Einführung</title>
   <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="../bower_components/prism/themes/prism.css" />
   <!-- endbower -->
-  <link rel="stylesheet" href="../css/typo.css">
   <link rel="stylesheet" href="../css/samples.css">
 </head>
-<body ng-app>
-  <nav class="page-header">
+
+<body ng-app="locApp">
+  <nav class="page-header" id="top">
     <div class="container">
       <div class="nav-wrapper">
         <a href="#" class="brand-logo right">Routing - Einführung</a>
         <ul id="nav-mobile" class="left side-nav">
-          <li><a href="../index.html">Samples</a></li>
-      </ul>
+          <li><a href="../index.html">Samples</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
   <div class="container">
     <div class="card-panel">
-      <h3></h3>
+      <h3>Einführung - Location</h3>
+      <div>
+        <p>
+          Das Routing in AngularJS basiert auf zwei Komponenten:
+          <ul class="collection">
+            <li class="collection-item">Location-Service: <code>$location</code>
+            </li>
+            <li class="collection-item">Routing von View und Controller</li>
+          </ul>
+          Letzteres wird durch zusätzliche Komponenten gewährleistet; dazu ist entweder das <code>ngRoute</code>-Modul zu installieren oder Fremdkomponenten wie zum Beispiel der
+          <a href="https://github.com/angular-ui/ui-router">AngularUI Router</a>.
+        </p>
+      </div>
+    </div>
+    <div class="card-panel" ng-controller="LocController">
+      <h3 id="location"><code>$location</code>-Service</h3>
+      <p>
+        Der <code>$location</code>-Service bietet eine programmier-freundliche API auf die URL-Leiste des Browsers. Er ermöglicht ein bequemes Auslesen und Verändern der Bestandsteile (Protokoll, Host, Port, Pfad, Hash, Suche). Dabei wird die URL vom Service überwacht. Um Nicht-HTML5-Browser zu unterstützen wird dabei die Url verändert ausgewertet und jeder Link innerhalb einer Anwendung auch entsprechend abgefangen.
+      </p>
+      <p>
+        AngularJS Guide: <a href="https://docs.angularjs.org/guide/$location">$location</a>
+      </p>
+      <p>
+        Aktueller Pfad: <code>{{loc}}</code>
+      </p>
     </div>
   </div>
   <!-- bower:js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/materialize/bin/materialize.js"></script>
+  <script src="../bower_components/prism/prism.js"></script>
   <!-- endbower -->
+  <script>
+    angular.module('locApp', [])
+      .controller('LocController', ['$scope', '$rootScope', '$location',
+        function ($scope, $rootScope, $location) {
+
+          $scope.$on('$locationChangeSuccess', function (event) {
+            $scope.loc = $location.path();
+          });
+      }]);
+  </script>
 </body>
+
 </html>
