@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="language-javascript">
+<head>
+  <meta charset="UTF-8">
+  <title>Concept - Event System</title>
+  <!-- bower:css -->
+  <!-- endbower -->
+  <link rel="stylesheet" href="../css/samples.css">
+</head>
+<body ng-app>
+  <nav class="page-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo right">Concept - Event System</a>
+        <ul id="nav-mobile" class="left side-nav">
+          <li><a href="../index.html">Samples</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="card-panel">
+      <h3>Das Event-System</h3>
+      <p>
+        AngularJS definiert ein eigenes Event-System. Zugang erhalten wir
+        über die Scope-API. Die wichtigsten Methoden:
+        <ul class="collection">
+          <li class="collection-item"><code>$on</code> Handler registrieren</li>
+          <li class="collection-item"><code>$emit</code> Event auslösen</li>
+          <li class="collection-item"><code>$broadcast</code> Event auslösen</li>
+        </ul>
+        Ein <code>$emit</code> verteilt das Event an die Kinde-Scopes,
+        der <code>$broadcast</code> and die Parent-Scopes. Bei nicht in
+        einer Beziehung stehenden Scopes kann der <code>$rootScope</code>
+        genutzt werden. Link: <a href="http://stackoverflow.com/questions/14502006/working-with-scope-emit-and-on">Stackoverflow</a> 
+      </p>
+    </div>
+  </div>
+  <!-- bower:js -->
+  <!-- endbower -->
+</body>
+</html>
